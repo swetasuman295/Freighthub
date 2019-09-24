@@ -2,7 +2,7 @@ package com.frieghthub.color;
 
 import javax.validation.constraints.NotBlank;
 
-public class Hexcolor{
+public class HexColor{
 
 	@NotBlank(message = "Hex Color is mandatory")
 	private String colorHex;
