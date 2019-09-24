@@ -9,18 +9,21 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/color")
+
 public class ColorController {
 	@Autowired
     ColorService service;
+	@RequestMapping("/color")
+    public String index() {
+        return "Please provide the hex code in the URL with /";
+    }
+
+	@RequestMapping("/color/{hex}")
 	
-	
-	@GetMapping("/{hex}")
-	
-	public ResponseEntity<Object> getRgb(@PathVariable("hex") String hex){
+	public ResponseEntity<Object> getRgb(@PathVariable("hex") String hex) {
 		
 		
-      return new ResponseEntity<Object> (service.getRgb(hex),new HttpHeaders(), HttpStatus.OK);
+   return new ResponseEntity<Object> (service.getRgb(hex),new HttpHeaders(), HttpStatus.OK);
 		
 
 		
